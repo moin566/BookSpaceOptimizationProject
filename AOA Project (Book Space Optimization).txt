@@ -1,0 +1,116 @@
+//Cupboard.h File:
+
+#include <iostream>
+#include <vector>
+using namespace std;
+class Cupboard
+{
+public:
+	Cupboard(int);
+	int capacity;
+	vector <int> Category;
+	vector <int> Books;
+	void AddBook(int, int);
+	void printCupboard();
+};
+
+
+//Cupboard.cpp File:
+
+#include "Cupboard.h"
+
+Cupboard::Cupboard(int c)
+{
+	capacity = c;
+}
+
+void Cupboard::AddBook(int c, int b)
+{
+	capacity = capacity - b;
+	Category.push_back(c);
+	Books.push_back(b);
+}
+
+void Cupboard::printCupboard()
+{
+	cout << "Remaining Capacity: " << capacity << endl;
+	for (int i = 0; i < Books.size(); i++)
+	{
+		cout << "Catagory: " << Category[i] << " book " << Books[i] << endl;
+	}
+}
+
+
+//Main.cpp File:
+
+#include <iostream>
+#include <vector>
+#include <conio.h>
+#include "Cupboard.h"
+using namespace std;
+int main() {
+	int n, x, cn;
+	cout << "Enter Total Number of Cupboards:";
+	cin >> n;
+	cout << "Enter the Total capacity of Each Cupboard:";
+	cin >> cn;
+	cout << "Enter the Total Number of Catagories:";
+	cin >> x;
+	vector <int> books;
+	vector <Cupboard> cupboards;
+	for (int a = 1; a <= n; a++)
+	{
+		cupboards.push_back(Cupboard(cn));
+	}
+	for (int b = 1; b <= x; b++)
+	{
+		cout << "Enter Total Number of books of catagory " << b << " :";
+		int e;
+		cin >> e;
+		books.push_back(e);
+	}
+	int i = 0, j = 0;
+	while (i < books.size() && j < cupboards.size())
+	{
+		if (books[i] <= cupboards[j].capacity)
+		{
+			cupboards[j].AddBook(i, books[i]);
+			if (cupboards[j].capacity == 0)
+			{
+				j++;
+			}
+			i++;
+		}
+		else
+			//(books[i] >= cupboards[j].capacity);
+		{
+			int rem = books[i] - cupboards[j].capacity;
+			cupboards[j].AddBook(i, cupboards[j].capacity);
+			j++;
+			while (rem > 0 && j < cupboards.size())
+			{
+				int nrem = rem - cupboards[j].capacity;
+				if (nrem < 0)
+				{
+					cupboards[j].AddBook(i, rem);
+					j++;
+					rem = 0;
+				}
+				else
+				{
+					int crem = rem - cupboards[j].capacity;
+					cupboards[j].AddBook(i, rem - crem);
+					j++;
+					rem = crem;
+				}
+			}
+			i++;
+		}
+	}
+	for (i = 0; i < cupboards.size(); i++)
+	{
+		cupboards[i].printCupboard();
+	}
+	_getch();
+	return 0;
+}
