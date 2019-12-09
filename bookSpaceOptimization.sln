@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookSpaceOptimization", "bookSpaceOptimization.csproj", "{61F87F35-2704-4F77-8BB2-E245283B8558}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61F87F35-2704-4F77-8BB2-E245283B8558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F87F35-2704-4F77-8BB2-E245283B8558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F87F35-2704-4F77-8BB2-E245283B8558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F87F35-2704-4F77-8BB2-E245283B8558}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFC54D8D-05B5-43EA-89D8-B5DD1C071D88}
+	EndGlobalSection
+EndGlobal
